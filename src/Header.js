@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './Header.css'
 
 import { Avatar, IconButton } from '@material-ui/core';
@@ -18,14 +18,23 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
-
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-
 function Header() {
-    const [value, setValue] = useState(0);
-
-
+    // const icons = [HomeOutlinedIcon,
+    //     PeopleAltOutlinedIcon,
+    //     SubscriptionsOutlinedIcon,
+    //     StorefrontIcon,
+    //     SupervisedUserCircleOutlinedIcon]
+    const icons = [<HomeOutlinedIcon />,
+        <PeopleAltOutlinedIcon />,
+        <SubscriptionsOutlinedIcon />,
+        <StorefrontIcon />,
+        <SupervisedUserCircleOutlinedIcon />,]
+   
+    const [active, setActive] = useState(icons[0])
+    
+    // const handleActive = (icon)=>{
+    //     setActive(icon)
+    // }
     return (
         <div className="header">
             <div className="header__left">
@@ -42,20 +51,24 @@ function Header() {
                 </div>
             </div>
             <div className="header__center">
-
-                <BottomNavigation
-                    value={value}
-                    onChange={(event, newValue) => {
-                        setValue(newValue);
-                    }}
+                
+                {icons.map(icon=> (
+                    <div 
+                        className={`header__option ${active === icon && 'header__option--active'}`}
+                        // onClick={(icon)=>handleActive(icon)}
+                        onClick={(e)=>setActive(e.target.value)}
                     >
-                    <BottomNavigationAction icon={<HomeOutlinedIcon />} />
-                    <BottomNavigationAction icon={<PeopleAltOutlinedIcon />} />
-                    <BottomNavigationAction icon={<SubscriptionsOutlinedIcon />} />
-                    <BottomNavigationAction icon={<StorefrontIcon />} />
-                    <BottomNavigationAction icon={<SupervisedUserCircleOutlinedIcon />} />
-                </BottomNavigation>
+                        {icon}
+                    </div>
+                ) )} 
+               
 
+                    {/* <HomeOutlinedIcon />
+                    <PeopleAltOutlinedIcon />
+                    <SubscriptionsOutlinedIcon />
+                    <StorefrontIcon />
+                    <SupervisedUserCircleOutlinedIcon /> */}
+              
             </div>
             <div className="header__right">
                 <div className="header__rightInfo">
