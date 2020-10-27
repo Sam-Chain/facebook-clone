@@ -1,0 +1,28 @@
+.headerOption {
+  margin: 0 5px;
+  padding: 10px 35px;
+
+  border-radius: 10px;
+  border-bottom: 4px solid transparent;
+}
+
+.headerOption > .MuiSvgIcon-root {
+  font-size: 30px;
+  font-weight: 100;
+  color: gray;
+}
+.headerOption:hover {
+  background-color: #eff2f5;
+}
+.headerOption--active {
+  border-radius: 10px;
+
+  margin-bottom: -5px;
+
+  border-bottom: 4px solid #2e81f4;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.headerOption--active > .MuiSvgIcon-root {
+  color: #2e81f4 !important;
+}

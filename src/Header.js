@@ -19,22 +19,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
 function Header() {
-    // const icons = [HomeOutlinedIcon,
-    //     PeopleAltOutlinedIcon,
-    //     SubscriptionsOutlinedIcon,
-    //     StorefrontIcon,
-    //     SupervisedUserCircleOutlinedIcon]
-    const icons = [<HomeOutlinedIcon />,
-        <PeopleAltOutlinedIcon />,
-        <SubscriptionsOutlinedIcon />,
-        <StorefrontIcon />,
-        <SupervisedUserCircleOutlinedIcon />,]
+    const icons = [HomeOutlinedIcon,
+        PeopleAltOutlinedIcon,
+        SubscriptionsOutlinedIcon,
+        StorefrontIcon,
+        SupervisedUserCircleOutlinedIcon]
    
     const [active, setActive] = useState(icons[0])
-    
-    // const handleActive = (icon)=>{
-    //     setActive(icon)
-    // }
+   
     return (
         <div className="header">
             <div className="header__left">
@@ -52,13 +44,12 @@ function Header() {
             </div>
             <div className="header__center">
                 
-                {icons.map(icon=> (
+                {icons.map(Icon=> (
                     <div 
-                        className={`header__option ${active === icon && 'header__option--active'}`}
-                        // onClick={(icon)=>handleActive(icon)}
-                        onClick={(e)=>setActive(e.target.value)}
+                        className={`header__option ${active === Icon && 'header__option--active'}`}
+                        onClick={()=>{setActive(Icon)}}
                     >
-                        {icon}
+                        <Icon/>
                     </div>
                 ) )} 
                
