@@ -18,6 +18,8 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+
 function Header() {
     const icons = [HomeOutlinedIcon,
         PeopleAltOutlinedIcon,
@@ -63,18 +65,17 @@ function Header() {
             </div>
             <div className="header__right">
                 <div className="header__rightInfo">
-                    <Avatar src="" />
-                    <h4>saddamrh</h4>
                 </div>
                     <IconButton>
                         <AddIcon/>
                     </IconButton>
                     <IconButton>
-                        <ForumIcon/>
+                        <OfflineBoltIcon/>
                     </IconButton>
                     <IconButton>
                         <NotificationsActiveIcon/>
                     </IconButton>
+                    <Avatar src="" />
                     <IconButton>
                         <ExpandMoreIcon/>
                     </IconButton>
